@@ -1,10 +1,14 @@
-from flask import Flask  # From module flask import class Flask
+from flask import Flask, render_template, url_for
 
-app = Flask(__name__)    # Construct an instance of Flask class for our webapp
+app = Flask(__name__, static_folder='templates/static')
 
-@app.route('/')          # URL '/' to be handled by main() route handler
-def main():
-    return 'Hello, world!'
+@app.route('/')
+def resume():
+    return render_template('resume.html', title='Резюме')
+
+@app.route('/contacts')
+def contacts():
+    return render_template('contacts.html', title='Контакти')
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Launch built-in web server and run this Flask webapp
+    app.run(debug=True)
