@@ -6,11 +6,11 @@ def create_app():
 
     from app.users import users_bp
     from app.products import products_bp
-    
+    from app.auth import auth_bp  # новий блюпрінт
 
     app.register_blueprint(users_bp)
     app.register_blueprint(products_bp)
- 
+    app.register_blueprint(auth_bp)
 
     from app.routes import register_routes
     register_routes(app)

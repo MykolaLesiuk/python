@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-4">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body">
+            <h2 class="text-center mb-4 text-primary">👤 Профіль користувача: <strong>{{ username }}</strong></h2>
+
+            <div class="text-end mb-3">
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-danger">
+                    <i class="bi bi-box-arrow-right"></i> Вийти
+                </a>
+            </div>
+
+            <hr>
+
+            <h4 class="text-secondary mb-3">🍪 Робота з кукі</h4>
+
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-body">
+                    <form method="POST" class="row g-3 align-items-center mb-3">
+                        <input type="hidden" name="action" value="add">
+                        <div class="col-md-5">
+                            <input type="text" name="key" placeholder="Ключ" class="form-control" required>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" name="value" placeholder="Значення" class="form-control" required>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <button class="btn btn-success w-100">
+                                <i class="bi bi-plus-circle"></i> Додати
+                            </button>
+                        </div>
+                    </form>
+
+                    <form method="POST" class="row g-3 align-items-center mb-3">
+                        <input type="hidden" name="action" value="delete_one">
+                        <div class="col-md-8">
+                            <input type="text" name="key" placeholder="Ключ для видалення" class="form-control" required>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <button class="btn btn-warning w-100">
+                                <i class="bi bi-trash"></i> Видалити один
+                            </button>
+                        </div>
+                    </form>
+
+                    <form method="POST" class="text-end">
+                        <input type="hidden" name="action" value="delete_all">
+                        <button class="btn btn-outline-danger">
+                            <i class="bi bi-x-circle"></i> Видалити всі кукі
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <h4 class="text-secondary mb-3">📋 Поточні кукі</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle shadow-sm rounded-3 overflow-hidden">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th scope="col">Ключ</th>
+                            <th scope="col">Значення</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in cookies.items() %}
+                        <tr>
+                            <td class="fw-semibold">{{ key }}</td>
+                            <td>{{ value }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="2" class="text-center text-muted">Немає збережених кукі</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
