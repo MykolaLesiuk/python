@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <div class="list-group">
+      <a href="{{ url_for('users.greetings', name='Роман') }}" class="list-group-item list-group-item-action">Роман</a>
+      <a href="{{ url_for('users.admin') }}" class="list-group-item list-group-item-action">Адмін</a>
+    </div>
+  </div>
+
+  <div class="col-md-9">
+    <h2>Привіт, {{ name.upper() }}!</h2>
+    <p>Тобі {{ age }} років.</p>
+  </div>
+</div>
+{% endblock %}
