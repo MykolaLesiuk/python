@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash, session, make_response
 from app.auth import auth_bp
+from app.forms import LoginForm
 
 # Фіктивні дані користувача (заглушка)
 VALID_USER = {
@@ -9,19 +10,22 @@ VALID_USER = {
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+        remember = form.remember.data
 
         if username == VALID_USER['username'] and password == VALID_USER['password']:
             session['user'] = username
-            flash('Вхід виконано успішно!', 'success')
+            flash(f'Вхід виконано успішно! (Remember = {remember})', 'success')
             return redirect(url_for('auth.profile'))
         else:
             flash('Невірне ім’я користувача або пароль!', 'danger')
             return redirect(url_for('auth.login'))
 
-    return render_template('auth/login.html')
+    return render_template('auth/login.html', title="Вхід", form=form)
 
 
 @auth_bp.route('/profile', methods=['GET', 'POST'])

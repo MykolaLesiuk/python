@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
+{% from "_formhelpers.html" import render_field %}
 {% block content %}
+
 <h2>Вхід</h2>
-<form method="POST">
-    <div class="mb-3">
-        <label class="form-label">Ім’я користувача</label>
-        <input type="text" name="username" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Пароль</label>
-        <input type="password" name="password" class="form-control" required>
-    </div>
-    <button class="btn btn-primary" type="submit">Увійти</button>
+
+<!-- Flash-повідомлення -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, msg in messages %}
+      <div class="alert alert-{{ category }} mt-2">{{ msg }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method="POST" novalidate>
+  {{ form.csrf_token }}
+  {{ render_field(form.username) }}
+  {{ render_field(form.password) }}
+  <div class="form-check mb-3">
+    {{ form.remember(class="form-check-input") }}
+    {{ form.remember.label(class="form-check-label") }}
+  </div>
+  {{ form.submit(class="btn btn-primary") }}
 </form>
+
 {% endblock %}
