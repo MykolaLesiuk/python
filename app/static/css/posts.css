@@ -1,0 +1,264 @@
+/* -----------------------------------
+   GLOBAL BLUE THEME
+----------------------------------- */
+
+body {
+    background: #f2f6ff; /* світлий синюватий фон */
+    font-family: "Inter", sans-serif;
+}
+
+/* Заголовок сторінки */
+h2 {
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    color: #1c3fa8; /* темно-синій */
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    width: 70px;
+    height: 3px;
+    background: #3e6bff;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+
+/* -----------------------------------
+   POST CARD STYLE
+----------------------------------- */
+
+.card {
+    border: none;
+    border-radius: 14px !important;
+    background: #ffffff;
+    padding: 22px;
+    box-shadow: 0 4px 16px rgba(27, 45, 112, 0.12); /* синя м’яка тінь */
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(27, 45, 112, 0.18);
+    transform: translateY(-4px);
+    border-left: 4px solid #3e6bff; /* синя смужка при ховері */
+    padding-left: 18px;
+}
+
+/* Заголовок поста */
+.card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0c1e63;
+}
+
+/* Дата та категорія */
+.text-muted {
+    color: #5f6b96 !important;
+    font-size: 14px;
+}
+
+/* Опис */
+.card-text {
+    margin-top: 8px;
+    font-size: 15px;
+    color: #2c3559;
+    line-height: 1.6;
+}
+
+
+/* -----------------------------------
+   BUTTONS
+----------------------------------- */
+
+.btn-outline-info {
+    border-radius: 8px;
+    border-width: 2px;
+    padding: 6px 14px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+
+    color: #3d6bff;
+    border-color: #3d6bff;
+}
+
+.btn-outline-info:hover {
+    background: #3d6bff;
+    color: white;
+    border-color: #3d6bff;
+}
+
+/* Add Post button */
+.btn-primary {
+    background: #3e6bff;
+    border-color: #3e6bff;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: #294ecf;
+}
+
+
+/* -----------------------------------
+   DETAIL POST PAGE
+----------------------------------- */
+
+.post-detail-title {
+    font-size: 34px;
+    font-weight: 800;
+    color: #0c1e63;
+    margin-bottom: 15px;
+}
+
+.post-detail-meta {
+    color: #59648e;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.post-detail-content {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(27, 45, 112, 0.1);
+    font-size: 18px;
+    line-height: 1.85;
+    border-left: 4px solid #3e6bff;
+}
+
+/* -----------------------------------
+   FORMS
+----------------------------------- */
+
+.post-form input,
+.post-form select,
+.post-form textarea {
+    border-radius: 12px !important;
+    padding: 10px 12px;
+    border: 1px solid #c7d2f7;
+    background: #f7f9ff;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-form input:focus,
+.post-form select:focus,
+.post-form textarea:focus {
+    border-color: #3e6bff;
+    box-shadow: 0 0 0 3px rgba(62,107,255,0.22);
+}
+
+.btn-submit {
+    border-radius: 10px;
+    padding: 10px 20px;
+    background: #3e6bff;
+    border-color: #3e6bff;
+    font-weight: 600;
+}
+
+.btn-submit:hover {
+    background: #294ecf;
+}
+
+
+/* -----------------------------------
+   DELETE CONFIRM
+----------------------------------- */
+
+.delete-box {
+    background: #ffecec;
+    border-left: 5px solid #ff5959;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.delete-text {
+    font-size: 18px;
+    color: #bb0000;
+}
+/* ====== GLOBAL ====== */
+body {
+    background: #f4f7ff;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Заголовок */
+.posts-title {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 40px;
+    color: #0a3d91;
+    font-weight: 700;
+}
+
+/* Контейнер всіх постів */
+.posts-container {
+    width: 60%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ====== CARD ====== */
+.post-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px 30px;
+    border: 2px solid #dce7ff;
+    box-shadow: 0 4px 15px rgba(0, 40, 120, 0.08);
+    transition: 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-4px);
+    border-color: #7ab3ff;
+    box-shadow: 0 10px 25px rgba(0, 40, 120, 0.15);
+}
+
+/* Назва поста */
+.post-title {
+    font-size: 22px;
+    color: #083b89;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Категорія + дата */
+.post-meta {
+    font-size: 14px;
+    color: #4874c4;
+    margin-bottom: 12px;
+}
+
+/* Опис */
+.post-text {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+/* Кнопка */
+.read-btn {
+    display: inline-block;
+    background: #0a5eff;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.read-btn:hover {
+    background: #0049d8;
+    border-color: #003bb0;
+}
+
