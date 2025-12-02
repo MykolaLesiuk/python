@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% import "macros/_render_field.html" as macro %}
+
+{% block title %}Зв'язатись зі мною{% endblock %}
+
+{% block content %}
+<h2> Зв'язатись зі мною</h2>
+
+<form action="{{ url_for('contacts') }}" method="POST" novalidate>
+
+    {{ form.hidden_tag() }}
+
+    {{ macro.render_field(form.name) }}
+    {{ macro.render_field(form.email) }}
+    {{ macro.render_field(form.phone) }}
+    {{ macro.render_field(form.subject) }}
+    {{ macro.render_field(form.message, rows=5) }} {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% import "macros/_render_field.html" as macro %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="login-page-wrapper">
+    <div class="login-form-container">
+
+        <h2>Login</h2>
+
+        <form method="POST" action="{{ url_for('users.login') }}" novalidate>
+
+            {{ form.hidden_tag() }}
+
+            {{ macro.render_field(form.email) }}
+            {{ macro.render_field(form.password) }}
+
+            <div class="mb-3 form-check">
+                {{ form.remember(class="form-check-input") }}
+                {{ form.remember.label(class="form-check-label") }}
+            </div>
+
+            {{ form.submit(class="btn btn-primary btn-login w-100") }}
+        </form>
+
+    </div>
+</div>
+{% endblock %}
