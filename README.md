@@ -1,1 +1,1 @@
-Python_Shliagor
+Python
